@@ -7,31 +7,30 @@ import 'package:navigator_example/features/shopping/presentation/pages/profile/p
 import 'package:navigator_example/main.dart';
 
 class Pages {
-  List<Page<dynamic>> pagesList(ValueChanged<AppPages> handelPage,
-      ValueChanged<bool> handelLogin, bool login, AppPages? currentPage) {
+  List<Page<dynamic>> pagesList(
+      ValueChanged<AppPages> handelPage, String myRoute) {
     return [
-      MaterialPage(
-        key: const ValueKey('LoginPage'),
-        child: LoginPage(isLogin: handelLogin),
+      const MaterialPage(
+        key:  ValueKey('LoginPage'),
+        child: LoginPage(),
       ),
-      if (login)
-        MaterialPage(
+      if (myRoute == '/home')
+        const MaterialPage(
           key: HomePage.valueKey,
           child: HomePage(
-            currentPage: handelPage,
           ),
         ),
-      if (currentPage == AppPages.cart)
+      if (myRoute == '/cart')
         const MaterialPage(
           key: Cart.valueKey,
           child: Cart(),
         ),
-      if (currentPage == AppPages.profile)
+      if (myRoute == '/profile')
         const MaterialPage(
           key: Profile.valueKey,
           child: Profile(),
         ),
-      if (currentPage == AppPages.checkout)
+      if (myRoute == '/checkout')
         const MaterialPage(
           key: Checkout.valueKey,
           child: Checkout(),

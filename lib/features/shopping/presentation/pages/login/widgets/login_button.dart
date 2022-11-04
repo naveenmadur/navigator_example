@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:navigator_example/routes/pages_config.dart';
+import 'package:navigator_example/routes/pages_delegate.dart';
+import 'package:provider/provider.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({
-    Key? key,
-    required this.isLogin
-  }) : super(key: key);
-  final ValueChanged<bool> isLogin;
+  const LoginButton({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,8 @@ class LoginButton extends StatelessWidget {
       padding: EdgeInsets.only(top: 10.h),
       child: GestureDetector(
         onTap: () {
-          isLogin(true);
+          Provider.of<PageDelegate>(context, listen: false).setNewRoutePath(homeConfig);
+          // isLogin(true);
         },
         child: Container(
           decoration: BoxDecoration(

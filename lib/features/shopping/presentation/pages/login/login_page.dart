@@ -4,8 +4,7 @@ import 'package:navigator_example/features/shopping/presentation/pages/login/wid
 import 'package:navigator_example/features/shopping/presentation/pages/login/widgets/username_and_password.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key, required this.isLogin}) : super(key: key);
-  final ValueChanged<bool> isLogin;
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 10.h),
               child: const Text('Forgot Password?'),
             ),
-            LoginButton(isLogin: isLogin,),
+            const LoginButton(),
           ],
         ),
       ),
